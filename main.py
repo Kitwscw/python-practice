@@ -1,5 +1,4 @@
 #sets score to 0
-imp=0
 score=0
 #ask users name & save
 name=input("whats your name?")
@@ -17,40 +16,8 @@ elif q1=="URDDD":
     print("The correct answer is 1914.")
 elif q1=="":
     print("no clue huh?")
-    imp=imp+1
     q1=input("when did the first world war start?")
-elif q1==""and imp==1:
-    imp=imp+1
-    print("did you press enter by accident or something?")
-    q1 = input("When did the first world war start")
-elif q1==""and imp==2:
-    imp=imp+1
-    print("Bro this isn't funny, just answer the question")
-    q1 = input("When did the first world war start")
-elif q1==""and imp==3:
-    imp=imp+1
-    print("Alright if you dont answer the question im gonna count to 5")
-    print("& when i get to 5, i'm gonna stop the quiz")
-    q1 = input("When did the first world war start")
-elif q1==""and imp==4:
-    imp=imp+1
-    print("1")
-    q1 = input("When did the first world war start")
-elif q1==""and imp==5:
-    imp=imp+1
-    print("2")
-    q1 = input("When did the first world war start")
-elif q1==""and imp==6:
-    imp=imp+1
-    print("3")
-    q1 = input("When did the first world war start")
-elif q1==""and imp==7:
-    imp=imp+1
-    print("4")
-    q1 = input("When did the first world war start")
-elif q1==""and imp==8:
-    imp=imp+1
-    print("alright, I warned you, goodbye!")
+
 else:
     print("Incorrect, the first world war started in 1914")
 #question 2
@@ -94,16 +61,64 @@ else:
 #question 5
 print("your fifth question is,")
 q5=input("who gave the order to bomb Hiroshima & Nagasaki")
-if q5=="Truman" or "truman" or "Harry Truman" or "harry Truman" or "Harry truman":
+if q5=="Truman" or q5 == "truman" or q5 == "Harry Truman" or q5 == "harry Truman" or q5 == "Harry truman":
     print("Correct! Harry Truman was the one who bombed hiroshima & nagasaki")
     score=score+1
 elif q5=="URDDD":
     print("The correct answer is Harry Truman.")
 elif q5=="":
     print("no clue huh?")
-
 else:
     print("Incorrect! the correct answer is Harry Truman")
-#end quiz
-print("anyways thats the end of the quiz")
+#question 6
+print("your sixth question is,")
+q6=input("who came up with the modern concept of communism?")
+if q6=="Karl marx" or q6== "Marx" or q6== "marx":
+    print("correct! karl marx came up with the moden concept of communism")
+    score=score+1
+elif q6=="":
+    print("no clue huh?")
+else:
+    print("Incorrect! the creator of modern communism is Karl Marx")
+#question 7
+print("your seventh question is,")
+q7=input("who was the king of england famous for having 6 wives?")
+if (q7=="henry"or q7== "Henry") and "king" or q7== "king" in q7 :
+    print("Correct! King henry the 8th is the right answer")
+    score=score+1
+elif q7=="":
+    print("no clue huh?")
+else:
+    print("Incorrect! the right answer was King henry the 8th")
+#question 8
+print("your eigth question is,")
+q8=input("when was ww2?")
+if q8=="1939-1945":
+    print("Correct! the 2nd world war was between 1939-1945")
+    score=score+1
+elif q8=="":
+    print("no clue huh?")
+else:
+    print("Incorrect! WWII was between 1939 & 1945")
+#question 9
+print("your ninth question is,")
+q9=input("What was the capiatal of the empire that ruled the Mediterranean?")
+if q9=="Rome" or q9== "rome":
+    print("Correct, the capital was rome")
+    score=score+1
+elif q9=="":
+    print("no clue huh?")
+else:
+    print("Incorrect! the capital was Rome")
+#question 10
+print("your final question is,")
+q10=input("who is the current prime minister of new zealand")
+if q10=="Christopher Luxon" or q10=="eggman":
+    print("Correct! the current pm is christopher luxon")
+    score=score+1
+elif q10=="":
+    print("no clue huh?")
+else:
+    print("Incorrect! the current PM is christopher luxon, unless it isnt")
+print(f"anyways thats the end of the quiz, you got {score} points")
 print("have a nice day!")
