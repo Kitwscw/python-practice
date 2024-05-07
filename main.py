@@ -60,8 +60,8 @@ else:
     print("Incorrect! the american revolutionart war started in 1775")
 #question 5
 print("your fifth question is,")
-q5=input("who gave the order to bomb Hiroshima & Nagasaki")
-if q5=="Truman" or q5 == "truman" or q5 == "Harry Truman" or q5 == "harry Truman" or q5 == "Harry truman":
+q5=input("who gave the order to bomb Hiroshima & Nagasaki".lower)
+if q5=="Harry Truman".lower or q5=="Truman".lower:
     print("Correct! Harry Truman was the one who bombed hiroshima & nagasaki")
     score=score+1
 elif q5=="URDDD":
@@ -72,8 +72,8 @@ else:
     print("Incorrect! the correct answer is Harry Truman")
 #question 6
 print("your sixth question is,")
-q6=input("who came up with the modern concept of communism?")
-if q6=="Karl marx" or q6== "Marx" or q6== "marx":
+q6=input("who came up with the modern concept of communism?".lower)
+if q6=="karl marx".lower or q6=="marx".lower:
     print("correct! karl marx came up with the moden concept of communism")
     score=score+1
 elif q6=="":
@@ -82,8 +82,8 @@ else:
     print("Incorrect! the creator of modern communism is Karl Marx")
 #question 7
 print("your seventh question is,")
-q7=input("who was the king of england famous for having 6 wives?")
-if (q7=="henry"or q7== "Henry") and "king" or q7== "king" in q7 :
+q7=input("who was the king of england famous for having 6 wives?".lower)
+if (q7=="henry".lower) and "king".lower in q7 :
     print("Correct! King henry the 8th is the right answer")
     score=score+1
 elif q7=="":
@@ -112,8 +112,8 @@ else:
     print("Incorrect! the capital was Rome")
 #question 10
 print("your final question is,")
-q10=input("who is the current prime minister of new zealand")
-if q10=="Christopher Luxon" or q10=="eggman":
+q10=input("who is the current prime minister of new zealand".lower)
+if q10=="Christopher Luxon".lower or q10=="eggman":
     print("Correct! the current pm is christopher luxon")
     score=score+1
 elif q10=="":
