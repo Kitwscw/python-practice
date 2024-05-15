@@ -24,15 +24,15 @@ while replay== "yes":
     b= "1914"
     c= "1926"
     d= "1980"
-    a1=input(QUESTION_FORMAT .format ( q1, a, b, c, d )).lower()
+    qa1=input(QUESTION_FORMAT .format ( q1, a, b, c, d )).lower()
     #check if user was correct, then tell user correct answer
-    if a1== b or a1== "b":
+    if qa1== b or qa1== "b":
         print("Correct! the first world war started in 1914")
         score=score+1
-    elif q1=="":
+    elif qa1=="":
         print("no clue huh?")
-        q1=input("when did the first world war start?")
-    elif  a1!=a and a1!=b and a1!=c and a1!=d:
+        q1=input(QUESTION_FORMAT .format ( q1, a, b, c, d )).lower()
+    elif  qa1!=a and qa1!=b and qa1!=c and qa1!=d:
         print("Bro that wasn't even an option")
     else:
         print("Incorrect, the first world war started in 1914")
@@ -52,13 +52,18 @@ while replay== "yes":
         print("Incorrect! the first consul was Napoleon")
     #question 3
     print("your third question is,")
-    q3=input("when was the UN formed?")
-    if q3=="1945":
+    q3=("when was the UN formed?")
+    a3=("1937")
+    b3=("1956")
+    c3=("1936")
+    d3=("1945")
+    qa3=(QUESTION_FORMAT .format ( q3, a3, b3, c3, d3 )).lower()
+    if qa3== d3 or qa3== "d":
         print("correct! the UN was formed in 1945")
         score=score+1
-    elif q3=="URDDD":
+    elif qa3!=:
         print("The correct answer is 1945.")
-    elif q3=="":
+    elif qa3=="":
         print("no clue huh?")
     else:
         print("Incorrect! the un was formed in 1945")
