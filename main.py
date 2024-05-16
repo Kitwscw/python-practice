@@ -26,7 +26,7 @@ while replay== "yes":
     d= "1980"
     qa1=input(QUESTION_FORMAT .format ( q1, a, b, c, d )).lower()
     #check if user was correct, then tell user correct answer
-    if qa1== b or qa1== "b":
+    if qa1== b or qa1== "b".lower:
         print("Correct! the first world war started in 1914")
         score=score+1
     elif qa1=="":
@@ -57,24 +57,29 @@ while replay== "yes":
     b3=("1956")
     c3=("1936")
     d3=("1945")
-    qa3=(QUESTION_FORMAT .format ( q3, a3, b3, c3, d3 )).lower()
+    qa3=input(QUESTION_FORMAT .format ( q3, a3, b3, c3, d3 )).lower()
     if qa3== d3 or qa3== "d":
         print("correct! the UN was formed in 1945")
         score=score+1
-    elif qa3!=:
-        print("The correct answer is 1945.")
+    elif qa3!=a3 and qa3!=b3 and qa3!=c3 and qa3!=d3:
+        print("bro that wasnt even an answer")
     elif qa3=="":
         print("no clue huh?")
     else:
         print("Incorrect! the un was formed in 1945")
     #question 4
     print("your fourth question is,")
-    q4=input("when did the American revolutionary war start?")
-    if q4=="1775":
+    q4=("when did the American revolutionary war start?")
+    a4=1775
+    b4=1234
+    c4=1886
+    d4=1764
+    qa4=input(QUESTION_FORMAT .format (q4, a4, b4, c4, d4,)).lower()
+    if qa4== a4 or qa4== "a".lower:
         print("Correct! the american revolutionary war started in 1775")
         score=score+1
-    elif q4=="URDDD":
-        print("The correct answer is 1945.")
+    elif qa4!= a4 and qa4!= b4 and qa4 != c4 and qa4!= d4:
+        print("thats not even an answer bro")
     elif q4=="":
         print("no clue huh?")
     else:
