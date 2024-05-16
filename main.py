@@ -6,14 +6,6 @@ while replay== "yes":
     devmode=False
     #ask users name & saves
     name=input("whats your name?".lower)
-    if name=="kit" :
-        qskip=input("Code?".lower)
-        if qskip=="urddd".lower:
-            devmode=True
-            skipto="which question do you want to skip to?"
-            s1= "1"
-            s2= "2"
-            s3= "3"
     #greet user & introduce quiz
     print(f"Hello, {name} & welcome to this quiz")
     print("This quiz is about world history")
