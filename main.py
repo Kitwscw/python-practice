@@ -1,13 +1,15 @@
-user="Tempuser"
+import random
 QUESTION_FORMAT="“{}\nA:{} B:{} C:{} D: {}”"
-GOOD_COMMENTS=[f"Correct! good job {user}!", f"Keep up the good work, {user}!"]
-BAD_COMMENTS={f"Incorrect! do better {user}" f"Thats wrong!{user}! try harder next time",}
+GOOD_COMMENTS=["Correct! good job!", f"Keep up the good work!"]
+BAD_COMMENTS={f"Incorrect! do better " f"Thats wrong!! try harder next time",}
 #sets score to 0
 replay="yes"
 while replay== "yes":
     score=0
     #ask users name & saves
     user = input("whats your name?")
+    if user=="":
+        user="User"
     #greet user & introduce quiz
     print(f"Hello, {user} & welcome to this quiz")
     print("This quiz is about world history")
@@ -26,9 +28,9 @@ while replay== "yes":
         b= "1914"
         c= "1926"
         d= "1980"
-        qa1=input(QUESTION_FORMAT .format ( q1, a, b, c, d )).lower()()
+        qa1=input(QUESTION_FORMAT .format ( q1, a, b, c, d )).lower()
         if qa1== b or qa1== "b".lower():
-            print("Correct! the first world war started in 1914")
+            print(GOOD_COMMENTS[0])
             score+=1
             break
         elif qa1=="":
@@ -84,6 +86,7 @@ while replay== "yes":
         if qa4== a4 or qa4== "a".lower():
             print("Correct! the american revolutionary war started in 1775")
             score+=1
+            break
         elif q4=="":
             print("no clue huh?")
             q4tries-=1
