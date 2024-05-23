@@ -1,12 +1,15 @@
+user="Tempuser"
 QUESTION_FORMAT="“{}\nA:{} B:{} C:{} D: {}”"
-#sets score to 0 & deactivates devmode
+GOOD_COMMENTS=[f"Correct! good job {user}!", f"Keep up the good work, {user}!"]
+BAD_COMMENTS={f"Incorrect! do better {user}" f"Thats wrong!{user}! try harder next time",}
+#sets score to 0
 replay="yes"
 while replay== "yes":
     score=0
     #ask users name & saves
-    name = input("whats your name?")
+    user = input("whats your name?")
     #greet user & introduce quiz
-    print(f"Hello, {name} & welcome to this quiz")
+    print(f"Hello, {user} & welcome to this quiz")
     print("This quiz is about world history")
     while True:
         try:
@@ -107,50 +110,71 @@ while replay== "yes":
         if q6=="karl marx".lower() or q6=="marx".lower():
             print("correct! karl marx came up with the moden concept of communism")
             score+=1
+            break
         elif q6=="":
             print("no clue huh?")
         else:
             print("Incorrect! the creator of modern communism is Karl Marx")
     #question 7
-    print("your seventh question is,")
-    q7=input("who was the king of england famous for having 6 wives?").lower()
-    if (q7=="henry".lower()) and "king".lower() in q7 :
-        print("Correct! King henry the 8th is the right answer")
-        score+=1
-    elif q7=="":
-        print("no clue huh?")
-    else:
-        print("Incorrect! the right answer was King henry the 8th")
+    q7tries=tries
+    while q7tries>0:
+        print("your seventh question is,")
+        q7=input("who was the king of england famous for having 6 wives?").lower()
+        if (q7=="henry".lower()) and "king".lower() in q7 :
+            print("Correct! King henry the 8th is the right answer")
+            score+=1
+            break
+        elif q7=="":
+            print("no clue huh?")
+            q7tries-=1
+        else:
+            print("Incorrect! the right answer was King henry the 8th")
+            q7tries-=1
     #question 8
-    print("your eigth question is,")
-    q8=input("when was ww2?")
-    if q8=="1939-1945":
-        print("Correct! the 2nd world war was between 1939-1945")
-        score+=1
-    elif q8=="":
-        print("no clue huh?")
-    else:
-        print("Incorrect! WWII was between 1939 & 1945")
+    q8tries=tries
+    while q8tries>0:
+        print("your eigth question is,")
+        q8=input("when was ww2?")
+        if q8=="1939-1945":
+            print("Correct! the 2nd world war was between 1939-1945")
+            score+=1
+            break
+        elif q8=="":
+            print("no clue huh?")
+            q8tries-=1
+        else:
+            print("Incorrect! WWII was between 1939 & 1945")
+            q8tries-=1
     #question 9
-    print("your ninth question is,")
-    q9=input("What was the capiatal of the empire that ruled the Mediterranean?").lower()
-    if q9=="Rome".lower():
-        print("Correct, the capital was rome")
-        score+=1
-    elif q9=="":
-        print("no clue huh?")
-    else:
-        print("Incorrect! the capital was Rome")
+    q9tries=tries
+    while q7tries>0:
+        print("your ninth question is,")
+        q9=input("What was the capiatal of the empire that ruled the Mediterranean?").lower()
+        if q9=="Rome".lower():
+            print("Correct, the capital was rome")
+            score+=1
+            break
+        elif q9=="":
+            print("no clue huh?")
+            q7tries-=1
+        else:
+            print("Incorrect! the capital was Rome")
+            q7tries-=1
     #question 10
-    print("your final question is,")
-    q10=input("who is the current prime minister of new zealand").lower()
-    if q10=="Christopher Luxon".lower() or q10=="eggman":
-        print("Correct! the current pm is christopher luxon")
-        score+=1
-    elif q10=="":
-        print("no clue huh?")
-    else:
-        print("Incorrect! the current PM is christopher luxon, unless it isnt")
-    print(f"anyways thanks for playing the quiz {name}, you got {score} points")
+    q10tries=tries
+    while q10tries>0:
+        print("your final question is,")
+        q10=input("who is the current prime minister of new zealand").lower()
+        if q10=="Christopher Luxon".lower() or q10=="eggman":
+            print("Correct! the current pm is christopher luxon")
+            score+=1
+            break
+        elif q10=="":
+            print("no clue huh?")
+            q10tries-=1
+        else:
+            print("Incorrect! the current PM is christopher luxon, unless it isnt")
+            q10tries-=1
+    print(f"anyways thanks for playing the quiz {user}, you got {score} points")
     replay=input("do you want to play again?")
 print("have a nice day!")
