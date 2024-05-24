@@ -2,6 +2,21 @@ import random
 QUESTION_FORMAT="“{}\nA:{} B:{} C:{} D: {}”"
 GOOD_COMMENTS=["Correct! good job!", f"Keep up the good work!"]
 BAD_COMMENTS={f"Incorrect! do better " f"Thats wrong!! try harder next time",}
+QUESTIONS=["When did the first world war start",
+           "who was the first consul of france during the napoleonic wars?",
+           "when was the UN formed?",
+           "when did the American revolutionary war start?",
+           "who gave the order to bomb Hiroshima & Nagasaki",
+           "who came up with the modern concept of communism?",
+           "who was the king of england famous for having 6 wives?",
+           "when was ww2?",
+           "What was the capiatal of the empire that ruled the Mediterranean?",
+           "who is the current prime minister of new zealand"]
+OPTIONS=[["1834", "1914", "1956", "1239"], 
+         ["Napoleon", "Marie Antoinette", "Cambacérès", "Lebrun"],
+         ["1985", "1887","1945","3500BCE"]]
+SHORT_OPTIONS=["a","b","c","d"]
+ANSWERS=[1,0,2]
 #sets score to 0
 replay="yes"
 while replay== "yes":
@@ -23,35 +38,34 @@ while replay== "yes":
     print("Your first question is,")
     q1tries=tries
     while q1tries>0:
-        q1 = "When did the first world war start"
-        a= "1832"
-        b= "1914"
-        c= "1926"
-        d= "1980"
-        qa1=input(QUESTION_FORMAT .format ( q1, a, b, c, d )).lower()
-        if qa1== b or qa1== "b".lower():
-            print(GOOD_COMMENTS[0])
+        qa1=input(QUESTION_FORMAT .format ( QUESTIONS[0], OPTIONS[0][0], OPTIONS[0][1], OPTIONS[0][2], OPTIONS[0][3] )).lower()
+        if qa1== OPTIONS[0][1] or qa1== SHORT_OPTIONS[1].lower():
+            print(random.choice(GOOD_COMMENTS))
             score+=1
             break
         elif qa1=="":
             print("no clue huh?")
             q1tries-=1
-        elif  qa1!=a and qa1!=b and qa1!=c and qa1!=d:
+        elif  qa1!=OPTIONS[0][0] and qa1!=OPTIONS[0][1] and qa1!=OPTIONS[0][2] and qa1!=OPTIONS[0][3]:
             print("Bro that wasn't even an option")
+            q1tries-=1
+        else:
+            print(random.choice(BAD_COMMENTS))
             q1tries-=1
     #question 2
     print("Your second question is,")
     q2tries=tries
     while q2tries>0:
-        q2=input("who was the first consul of france during the napoleonic wars?").lower()
+        q2=input(QUESTION_FORMAT .format(QUESTIONS, OPTIONS[1][0], OPTIONS[1][1], OPTIONS)).lower()
         if q2=="napoleon".lower():
             print("Correct! the first consul was Napoleon")
             score+=1
             break
-        elif q2=="URDDD":
-            print("The correct answer is Napoleon.")
         elif q2=="":
             print("no clue huh?")
+            q2tries-=1
+        else:
+            print(random.choice(BAD_COMMENTS))
             q2tries-=1
     #question 3
     print("your third question is,")
