@@ -1,7 +1,7 @@
 import random
 QUESTION_FORMAT="“{}\nA:{} B:{} C:{} D: {}”"
-GOOD_COMMENTS=["Correct! good job!", f"Keep up the good work!"]
-BAD_COMMENTS={f"Incorrect! do better " f"Thats wrong!! try harder next time",}
+GOOD_COMMENTS=[" good job!", f"Keep up the good work!"]
+BAD_COMMENTS={f"do better! " f"try harder next time",}
 QUESTIONS=["When did the first world war start",
            "who was the first consul of france during the napoleonic wars?",
            "when was the UN formed?",
@@ -14,9 +14,16 @@ QUESTIONS=["When did the first world war start",
            "who is the current prime minister of new zealand"]
 OPTIONS=[["1834", "1914", "1956", "1239"], 
          ["Napoleon", "Marie Antoinette", "Cambacérès", "Lebrun"],
-         ["1985", "1887","1945","3500BCE"]]
+         ["1985", "1887","1945","3500BCE"],
+         ["1775","1234","1886","1764"],
+         ["JFK","Abraham Lincoln","Ronald Reagan","Harry Truman"],
+         ["Karl Marx","Vladimir Lenin","Joseph Stalin","Ho Chi Minh"],
+         ["Charlemagne","King Henry VIII","King Henry VII"," Louis XIV"],
+         ["1746-1846","1846-1852","1914-1918","1939-1945"],
+         ["Constantinople","carthage","Rome","Alexandria"],
+         ["Christopher luxon", "winston Peters","Rishi Sunak", "David Seymour"]]
 SHORT_OPTIONS=["a","b","c","d"]
-ANSWERS=[1,0,2]
+ANSWERS=[1,0,2,0,3,0,1,3,2,0]
 #sets score to 0
 replay="yes"
 while replay== "yes":
@@ -36,32 +43,38 @@ while replay== "yes":
             print("that aint a number mate")
     #ask user a question
     print("Your first question is,")
-    q1tries=tries
-    while q1tries>0:
-        qa1=input(QUESTION_FORMAT .format ( QUESTIONS[0], OPTIONS[0][0], OPTIONS[0][1], OPTIONS[0][2], OPTIONS[0][3] )).lower()
-        if qa1== OPTIONS[0][1] or qa1== SHORT_OPTIONS[1].lower():
-            print(random.choice(GOOD_COMMENTS))
-            score+=1
-            break
-        elif qa1=="":
-            print("no clue huh?")
-            q1tries-=1
-        elif  qa1!=OPTIONS[0][0] and qa1!=OPTIONS[0][1] and qa1!=OPTIONS[0][2] and qa1!=OPTIONS[0][3]:
-            print("Bro that wasn't even an option")
-            q1tries-=1
-        else:
-            print(random.choice(BAD_COMMENTS))
-            q1tries-=1
+    for i in range(len(QUESTIONS)):
+        qtries=tries
+        while qtries>0:
+            qa1=input(QUESTION_FORMAT .format ( QUESTIONS[i], OPTIONS[i][0], OPTIONS[i][1], OPTIONS[i][2], OPTIONS[i][3] )).lower()
+            if qa1== OPTIONS[0][ANSWERS[0]] or qa1== SHORT_OPTIONS[1].lower():
+                print("Thats correct!")
+                print(random.choice(GOOD_COMMENTS))
+                score+=1
+                break
+            elif qa1=="":
+                print("no clue huh?")
+                qtries-=1
+            elif  qa1 in OPTIONS[0] or qa1 in SHORT_OPTIONS:
+                print("that isnt correct")
+                print(random.choice(BAD_COMMENTS))
+                qtries-=1
+            else:
+                print("that wasnt even an option")
+                qtries-=1
     #question 2
     print("Your second question is,")
     q2tries=tries
     while q2tries>0:
-        q2=input(QUESTION_FORMAT .format(QUESTIONS, OPTIONS[1][0], OPTIONS[1][1], OPTIONS)).lower()
-        if q2=="napoleon".lower():
+        qa2=input (QUESTION_FORMAT .format(QUESTIONS[1], OPTIONS[1][0], OPTIONS[1][1], OPTIONS[1][2], OPTIONS[1][3])).lower()
+        if qa2== OPTIONS[1][ANSWERS[0]] or qa2==SHORT_OPTIONS[ANSWERS[1]] .lower():
             print("Correct! the first consul was Napoleon")
             score+=1
             break
-        elif q2=="":
+        elif qa2 in OPTIONS[1] or qa2 in SHORT_OPTIONS:
+            print("that aint it mate")
+            q2tries-=1
+        elif qa2=="":
             print("no clue huh?")
             q2tries-=1
         else:
@@ -71,22 +84,19 @@ while replay== "yes":
     print("your third question is,")
     q3tries=tries
     while q3tries>0:
-        q3=("when was the UN formed?")
-        a3=("1937")
-        b3=("1956")
-        c3=("1936")
-        d3=("1945")
-        qa3=input(QUESTION_FORMAT .format ( q3, a3, b3, c3, d3 )).lower()
-        if qa3== d3 or qa3== "d":
+        qa3=input(QUESTION_FORMAT .format ( QUESTIONS[2], OPTIONS[2][0], OPTIONS[2][1],OPTIONS[2][2], OPTIONS[2][3] )).lower()
+        if qa3== OPTIONS[2][ANSWERS[2]] or qa3==SHORT_OPTIONS[ANSWERS[2]]:
             print("correct! the UN was formed in 1945")
             score+=1
             break
         elif qa3=="":
             print("no clue huh?")
             q3tries-=1
-        elif qa3!=a3 and qa3!=b3 and qa3!=c3 and qa3!=d3:
-            print("bro that wasnt even an answer")
+        elif qa3 in OPTIONS[2] or qa3 in SHORT_OPTIONS[2] :
+            print("that isnt right bro")
             q3tries-=1
+        else:
+            print("that wasnt even an option")
     #question 4
     print("your fourth question is,")
     q4tries=tries
@@ -164,7 +174,7 @@ while replay== "yes":
             q8tries-=1
     #question 9
     q9tries=tries
-    while q7tries>0:
+    while q9tries>0:
         print("your ninth question is,")
         q9=input("What was the capiatal of the empire that ruled the Mediterranean?").lower()
         if q9=="Rome".lower():
@@ -173,10 +183,10 @@ while replay== "yes":
             break
         elif q9=="":
             print("no clue huh?")
-            q7tries-=1
+            q9tries-=1
         else:
             print("Incorrect! the capital was Rome")
-            q7tries-=1
+            q9tries-=1
     #question 10
     q10tries=tries
     while q10tries>0:
