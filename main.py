@@ -1,7 +1,7 @@
 import random
 QUESTION_FORMAT="“{}\nA:{} B:{} C:{} D: {}”"
 GOOD_COMMENTS=[" good job!", f"Keep up the good work!"]
-BAD_COMMENTS={f"do better! " f"try harder next time",}
+BAD_COMMENTS={"do better! " "try harder next time",}
 QUESTIONS=["When did the first world war start",
            "who was the first consul of france during the napoleonic wars?",
            "when was the UN formed?",
@@ -25,16 +25,17 @@ OPTIONS=[["1834", "1914", "1956", "1239"],
 SHORT_OPTIONS=["a","b","c","d"]
 ANSWERS=[1,0,2,0,3,0,1,3,2,0]
 #sets score to 0
+score=0
+#ask users name & saves
+user = input("whats your name?")
+if user=="":
+        user="User"
+#greet user & introduce quiz
+print(f"Hello, {user} & welcome to this quiz")
+print("This quiz is about world history")
 replay="yes"
 while replay== "yes":
-    score=0
-    #ask users name & saves
-    user = input("whats your name?")
-    if user=="":
-        user="User"
-    #greet user & introduce quiz
-    print(f"Hello, {user} & welcome to this quiz")
-    print("This quiz is about world history")
+    
     while True:
         try:
             tries=int( input("how many tries would you like for eack question? 1-3"))
@@ -47,7 +48,7 @@ while replay== "yes":
         qtries=tries
         while qtries>0:
             qa1=input(QUESTION_FORMAT .format ( QUESTIONS[i], OPTIONS[i][0], OPTIONS[i][1], OPTIONS[i][2], OPTIONS[i][3] )).lower()
-            if qa1== OPTIONS[0][ANSWERS[0]] or qa1== SHORT_OPTIONS[1].lower():
+            if qa1== OPTIONS[i][ANSWERS[i]] or qa1== SHORT_OPTIONS[ANSWERS[i]].lower():
                 print("Thats correct!")
                 print(random.choice(GOOD_COMMENTS))
                 score+=1
@@ -55,9 +56,8 @@ while replay== "yes":
             elif qa1=="":
                 print("no clue huh?")
                 qtries-=1
-            elif  qa1 in OPTIONS[0] or qa1 in SHORT_OPTIONS:
+            elif  qa1 in OPTIONS[i] or qa1 in SHORT_OPTIONS:
                 print("that isnt correct")
-                print(random.choice(BAD_COMMENTS))
                 qtries-=1
             else:
                 print("that wasnt even an option")
