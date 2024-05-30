@@ -43,7 +43,8 @@ while lives>0:
         if correct(ans, guesses):
             print("you've already guessed that")
         else:
-            print("")
+            print("Correct! good job!")
+            guesses.append(ans)
     else:
         print("incorrect!")
         lives-=1
