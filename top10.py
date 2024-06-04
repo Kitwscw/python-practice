@@ -25,6 +25,7 @@ def getlives():
             lives=int(lives)
             if lives >0 and lives<10:
                 return lives
+            break
         except:
             print("that isn't a number")
 def correct(answer, list):
