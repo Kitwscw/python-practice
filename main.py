@@ -2,6 +2,8 @@ import random
 QUESTION_FORMAT="“{}\nA:{} B:{} C:{} D: {}”"
 GOOD_COMMENTS=[" good job!", f"Keep up the good work!"]
 BAD_COMMENTS={"do better! " "try harder next time",}
+#if you want to add a new question, just add the question to the questions list
+#then add the answer to the options list
 QUESTIONS=["When did the first world war start",
            "who was the first consul of france during the napoleonic wars?",
            "when was the UN formed?",
